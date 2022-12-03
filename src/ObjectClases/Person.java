@@ -7,10 +7,10 @@ public class Person {
     private String name;
     private String middleName;
     private String dateOfBirth;  // dd.mm.yyyy
-    private int numberOfPhone;
+    private long numberOfPhone;
     private char gender;
 
-    public Person(String surname, String name, String middleName, String dateOfBirth, int numberOfPhone, char gender) {
+    public Person(String surname, String name, String middleName, String dateOfBirth, long numberOfPhone, char gender) {
         this.surname = surname;
         this.name = name;
         this.middleName = middleName;
@@ -35,7 +35,7 @@ public class Person {
         return dateOfBirth;
     }
 
-    public int getNumberOfPhone() {
+    public long getNumberOfPhone() {
         return numberOfPhone;
     }
 

@@ -7,16 +7,17 @@ import Repository.PersonRepository;
 import java.util.Scanner;
 
 public class PersonServiceImpl implements PersonService{
-    private Person person;
-    private PersonRepository rep;
+    private Person personSer;
+    private PersonRepository repSer;
 
     public Person getPerson() {
-        return person;
+        return this.personSer;
     }
 
     public PersonRepository getRep() {
-        return rep;
+        return this.repSer;
     }
+
 
     @Override
     public void personAdd() {
@@ -26,6 +27,7 @@ public class PersonServiceImpl implements PersonService{
         String goToParse  = sc.nextLine();
         Parser prs = new Parser();
         String [] arr = prs.parse(goToParse);
+        this.personSer = new Person(arr[0], arr[1], arr[2],arr[3], Long.parseLong(arr[4]), arr[5].charAt(0));
 
 
     }
@@ -33,7 +35,8 @@ public class PersonServiceImpl implements PersonService{
     @Override
     public void printPersonInfo() {
         System.out.printf("Вы ввели:\n Фамилия: %s\n Имя: %s\n Отчество: %s \n Дата рождения: %s \n Номер телефона: %s \n " +
-                "Пол: %s", person.getSurname(), person.getName(), person.getMiddleName(), person.getDateOfBirth(), person.getNumberOfPhone(), person.getGender());
+                "Пол: %s", personSer.getSurname(), personSer.getName(), personSer.getMiddleName(), personSer.getDateOfBirth(),
+                personSer.getNumberOfPhone(), personSer.getGender());
 
     }
 

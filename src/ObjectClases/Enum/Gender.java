@@ -1,4 +1,4 @@
-package ObjectClases.Gender;
+package ObjectClases.Enum;
 
 public enum Gender {
     f,

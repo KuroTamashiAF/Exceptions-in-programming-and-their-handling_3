@@ -1,8 +1,6 @@
 package ObjectClases;
 
-import ObjectClases.Gender.Gender;
-
-import java.util.Scanner;
+import ObjectClases.Enum.Gender;
 
 public class Person {
     private String surname;

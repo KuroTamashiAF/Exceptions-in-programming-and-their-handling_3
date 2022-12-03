@@ -8,9 +8,9 @@ public class Person {
     private String middleName;
     private String dateOfBirth;  // dd.mm.yyyy
     private int numberOfPhone;
-    private Gender gender;
+    private char gender;
 
-    public Person(String surname, String name, String middleName, String dateOfBirth, int numberOfPhone, Gender gender) {
+    public Person(String surname, String name, String middleName, String dateOfBirth, int numberOfPhone, char gender) {
         this.surname = surname;
         this.name = name;
         this.middleName = middleName;
@@ -39,7 +39,7 @@ public class Person {
         return numberOfPhone;
     }
 
-    public Gender getGender() {
+    public char getGender() {
         return gender;
     }
 }

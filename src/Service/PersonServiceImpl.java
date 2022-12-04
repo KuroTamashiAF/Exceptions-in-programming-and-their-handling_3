@@ -4,6 +4,7 @@ import ObjectClases.Enum.Gender;
 import ObjectClases.Person;
 import Repository.PersonRepository;
 import Service.Errors.*;
+import Write.WritingToAFile;
 
 import java.util.Scanner;
 
@@ -36,6 +37,8 @@ public class PersonServiceImpl implements PersonService{
                 } else {
                     this.personSer = new Person(arr[0], arr[1], arr[2], arr[3], Long.parseLong(arr[4]),
                             arr[5].charAt(0));
+                    WritingToAFile wf = new WritingToAFile();
+                    wf.write(personSer);
                     sc.close();
                     break;
                 }

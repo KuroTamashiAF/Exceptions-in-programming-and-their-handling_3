@@ -42,4 +42,9 @@ public class Person {
     public char getGender() {
         return gender;
     }
+
+    @Override
+    public String toString() {
+        return surname + name + middleName + dateOfBirth + numberOfPhone + gender;
+    }
 }

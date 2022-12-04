@@ -25,9 +25,12 @@ public String[] parse(String data) throws IncorrectLastName, IncorrectName, Inco
     if ( arr[5].length() !=1 ){
         throw new IncorrectGender(arr[5].charAt(0));
     }
-//    if (arr[5].equals("f") || arr[5].equals("m")){
-//        throw new IncorrectGender(arr[5].charAt(0));
-//    }
+    if (arr[5].contains("f") || arr[5].contains("m")){
+
+    }
+    else {
+        throw new IncorrectGender(arr[5].charAt(0));
+    }
     return arr;
     }
 }

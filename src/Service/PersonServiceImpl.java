@@ -3,8 +3,10 @@ package Service;
 import ObjectClases.Enum.Gender;
 import ObjectClases.Person;
 import Repository.PersonRepository;
+import Service.Errors.IncorrectDateOfBirth;
 import Service.Errors.IncorrectLastName;
 import Service.Errors.IncorrectName;
+import Service.Errors.IncorrectPatronymic;
 
 import java.util.Scanner;
 
@@ -46,6 +48,10 @@ public class PersonServiceImpl implements PersonService{
             }catch (IncorrectLastName e){
                 System.out.println(e.getInputStr());
             }catch (IncorrectName e){
+                System.out.println(e.getInp());
+            }catch (IncorrectPatronymic e){
+                System.out.println(e.getInp());
+            }catch (IncorrectDateOfBirth e){
                 System.out.println(e.getInp());
             }
         }

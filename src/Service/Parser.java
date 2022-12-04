@@ -4,7 +4,7 @@ import Service.Errors.*;
 
 public class Parser {
 public String[] parse(String data) throws IncorrectLastName, IncorrectName, IncorrectPatronymic,
-        IncorrectDateOfBirth, IncorrectNumberOfPhone {
+        IncorrectDateOfBirth, IncorrectNumberOfPhone, IncorrectGender {
     String []arr  = data.split(" ");
 
     if ( arr[0].equals("") || arr[0].equals(" ")){
@@ -22,10 +22,12 @@ public String[] parse(String data) throws IncorrectLastName, IncorrectName, Inco
     if (arr[4].length() != 11){
         throw new IncorrectNumberOfPhone(arr[4]);
     }
-
-
-
-
+    if ( arr[5].length() !=1 ){
+        throw new IncorrectGender(arr[5].charAt(0));
+    }
+//    if (arr[5].equals("f") || arr[5].equals("m")){
+//        throw new IncorrectGender(arr[5].charAt(0));
+//    }
     return arr;
     }
 }

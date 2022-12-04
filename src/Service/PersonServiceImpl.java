@@ -52,6 +52,8 @@ public class PersonServiceImpl implements PersonService{
                 System.out.println(e.getInp());
             }catch (IncorrectNumberOfPhone e){
                 System.out.println(e.getInp());
+            }catch (IncorrectGender e){
+                System.out.println(e.getInp());
             }
         }
 

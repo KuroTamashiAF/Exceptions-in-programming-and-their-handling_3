@@ -1,12 +1,10 @@
 package Service;
 
-import Service.Errors.IncorrectDateOfBirth;
-import Service.Errors.IncorrectLastName;
-import Service.Errors.IncorrectName;
-import Service.Errors.IncorrectPatronymic;
+import Service.Errors.*;
 
 public class Parser {
-public String[] parse(String data) throws IncorrectLastName, IncorrectName, IncorrectPatronymic, IncorrectDateOfBirth {
+public String[] parse(String data) throws IncorrectLastName, IncorrectName, IncorrectPatronymic,
+        IncorrectDateOfBirth, IncorrectNumberOfPhone {
     String []arr  = data.split(" ");
 
     if ( arr[0].equals("") || arr[0].equals(" ")){
@@ -20,6 +18,9 @@ public String[] parse(String data) throws IncorrectLastName, IncorrectName, Inco
     }
     if (arr[3].equals("") || arr[3].equals(" ")) {
         throw new IncorrectDateOfBirth(arr[3]);
+    }
+    if (arr[4].length() != 11){
+        throw new IncorrectNumberOfPhone(arr[4]);
     }
 
 

@@ -4,6 +4,7 @@ import ObjectClases.Enum.Gender;
 import ObjectClases.Person;
 import Repository.PersonRepository;
 import Service.Errors.IncorrectLastName;
+import Service.Errors.IncorrectName;
 
 import java.util.Scanner;
 
@@ -43,7 +44,9 @@ public class PersonServiceImpl implements PersonService{
                 System.out.println("Вы ввели слишком мало или слишком много данных \n" +
                         "Повторите ввод");
             }catch (IncorrectLastName e){
-                System.out.println("Вы ввели не коректную Фамилию повторите ввод\n ");
+                System.out.println(e.getInputStr());
+            }catch (IncorrectName e){
+                System.out.println(e.getInp());
             }
         }
 

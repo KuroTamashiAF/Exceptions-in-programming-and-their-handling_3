@@ -3,6 +3,7 @@ package Service;
 import ObjectClases.Enum.Gender;
 import ObjectClases.Person;
 import Repository.PersonRepository;
+import Service.Errors.IncorrectLastName;
 
 import java.util.Scanner;
 
@@ -25,20 +26,24 @@ public class PersonServiceImpl implements PersonService{
                 "через пробел ");
         Scanner sc = new Scanner(System.in);
         while(true) {
+            try {
             String goToParse = sc.nextLine();
             Parser prs = new Parser();
             String[] arr = prs.parse(goToParse);
-            try {
+
                 if (arr.length != 6) {
                     throw new RuntimeException();
                 } else {
                     this.personSer = new Person(arr[0], arr[1], arr[2], arr[3], Long.parseLong(arr[4]),
                             arr[5].charAt(0));
+                    sc.close();
                     break;
                 }
             }catch (RuntimeException e){
                 System.out.println("Вы ввели слишком мало или слишком много данных \n" +
                         "Повторите ввод");
+            }catch (IncorrectLastName e){
+                System.out.println("Вы ввели не коректную Фамилию повторите ввод\n ");
             }
         }
 
